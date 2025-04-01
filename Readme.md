@@ -1,8 +1,8 @@
 # Mouli Kesavan
-Welcome to my personal portfolio! I’m a Cybersecurity graduate at University of Birrmingham.
+Welcome to my personal portfolio! I’m a Cybersecurity graduate at University of Birmingham.
 
 ## About Me
-I have experience in Penetration Teting, Malware analysis, and Threat detection.
+I have experience in Penetration Testing, Malware analysis, and Threat detection.
 
 ## Skills
 - Cloud Computing
