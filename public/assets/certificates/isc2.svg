@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#0d0d0d"/>
+  <rect width="400" height="4" fill="#006e51"/>
+  <circle cx="200" cy="107" r="55" fill="none" stroke="#006e51" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="200" cy="107" r="44" fill="none" stroke="#006e51" stroke-width="0.5" opacity="0.25"/>
+  <text x="200" y="98" font-family="Courier New, monospace" font-size="13" font-weight="bold" fill="#006e51" text-anchor="middle" letter-spacing="2">ISC2</text>
+  <line x1="170" y1="107" x2="230" y2="107" stroke="#006e51" stroke-width="0.5" opacity="0.4"/>
+  <text x="200" y="123" font-family="Courier New, monospace" font-size="10" fill="#888" text-anchor="middle" letter-spacing="1">CERTIFIED</text>
+  <line x1="120" y1="195" x2="280" y2="195" stroke="#006e51" stroke-width="0.5" opacity="0.3"/>
+  <text x="200" y="218" font-family="Courier New, monospace" font-size="12" fill="#aaa" text-anchor="middle" letter-spacing="3">CC</text>
+  <text x="200" y="238" font-family="Courier New, monospace" font-size="10" fill="#aaa" text-anchor="middle" letter-spacing="1">CERTIFIED IN CYBERSECURITY</text>
+  <text x="200" y="260" font-family="Courier New, monospace" font-size="9" fill="#555" text-anchor="middle" letter-spacing="2">ISC2</text>
+  <circle cx="200" cy="280" r="2" fill="#006e51" opacity="0.6"/>
+</svg>

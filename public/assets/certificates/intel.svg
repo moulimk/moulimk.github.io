@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#0d0d0d"/>
+  <rect width="400" height="4" fill="#0071c5"/>
+  <ellipse cx="200" cy="117" rx="58" ry="58" fill="none" stroke="#0071c5" stroke-width="1.5" opacity="0.5"/>
+  <ellipse cx="200" cy="117" rx="48" ry="48" fill="none" stroke="#0071c5" stroke-width="0.5" opacity="0.25"/>
+  <text x="200" y="108" font-family="Courier New, monospace" font-size="14" font-weight="bold" fill="#0071c5" text-anchor="middle" letter-spacing="3">INTEL</text>
+  <line x1="168" y1="118" x2="232" y2="118" stroke="#0071c5" stroke-width="0.5" opacity="0.4"/>
+  <text x="200" y="134" font-family="Courier New, monospace" font-size="10" fill="#888" text-anchor="middle" letter-spacing="1">CERTIFIED</text>
+  <line x1="120" y1="200" x2="280" y2="200" stroke="#0071c5" stroke-width="0.5" opacity="0.3"/>
+  <text x="200" y="222" font-family="Courier New, monospace" font-size="10" fill="#aaa" text-anchor="middle" letter-spacing="2">AI &amp; HIGH PERFORMANCE</text>
+  <text x="200" y="240" font-family="Courier New, monospace" font-size="10" fill="#aaa" text-anchor="middle" letter-spacing="2">COMPUTING</text>
+  <text x="200" y="262" font-family="Courier New, monospace" font-size="9" fill="#555" text-anchor="middle" letter-spacing="2">INTEL CORPORATION</text>
+  <circle cx="200" cy="282" r="2" fill="#0071c5" opacity="0.6"/>
+</svg>

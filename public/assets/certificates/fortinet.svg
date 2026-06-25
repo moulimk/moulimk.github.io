@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#0d0d0d"/>
+  <rect width="400" height="4" fill="#ee3224"/>
+  <rect x="140" y="55" width="120" height="120" rx="8" fill="none" stroke="#ee3224" stroke-width="1.5" opacity="0.5"/>
+  <text x="200" y="108" font-family="Courier New, monospace" font-size="13" font-weight="bold" fill="#ee3224" text-anchor="middle" letter-spacing="1">FORTINET</text>
+  <line x1="160" y1="118" x2="240" y2="118" stroke="#ee3224" stroke-width="0.5" opacity="0.4"/>
+  <text x="200" y="140" font-family="Courier New, monospace" font-size="28" font-weight="bold" fill="#ee3224" text-anchor="middle" letter-spacing="3">NSE</text>
+  <text x="200" y="162" font-family="Courier New, monospace" font-size="11" fill="#888" text-anchor="middle">CERTIFIED ASSOCIATE</text>
+  <line x1="120" y1="200" x2="280" y2="200" stroke="#ee3224" stroke-width="0.5" opacity="0.3"/>
+  <text x="200" y="222" font-family="Courier New, monospace" font-size="11" fill="#aaa" text-anchor="middle" letter-spacing="2">NETWORK SECURITY EXPERT</text>
+  <text x="200" y="248" font-family="Courier New, monospace" font-size="9" fill="#555" text-anchor="middle" letter-spacing="2">FORTINET</text>
+  <circle cx="200" cy="275" r="2" fill="#ee3224" opacity="0.6"/>
+</svg>
