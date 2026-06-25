@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -29,7 +29,7 @@ export default function CertificationsSection() {
         >
           <div className="flex items-center gap-3 mb-5">
             <span className="inline-block w-8 h-px bg-primary opacity-60" />
-            <span className="section-label">03 â€” Credentials</span>
+            <span className="section-label">04 — Credentials</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <h2 className="section-heading text-gradient-primary">
@@ -37,7 +37,7 @@ export default function CertificationsSection() {
             </h2>
             <p className="text-muted-foreground text-xs max-w-xs leading-relaxed" style={{ opacity: 0.6 }}>
               Industry certifications and training completions.
-              Click any card to view â€” ICS/SCADA group expands to all 8 certs.
+              Click any card to view — ICS/SCADA group expands to all 8 certs.
             </p>
           </div>
         </motion.div>

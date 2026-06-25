@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -25,7 +25,7 @@ export default function ProjectsSection() {
         >
           <div className="flex items-center gap-3 mb-5">
             <span className="inline-block w-8 h-px bg-primary opacity-60" />
-            <span className="section-label">02 â€” Projects</span>
+            <span className="section-label">03 — Projects</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <h2 className="section-heading text-gradient-primary">My Works</h2>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -67,7 +67,7 @@ export default function ContactSection() {
 
     setSubmitState("submitting");
     // Redirect to mailto as a static-site fallback
-    const mailto = `mailto:${socialLinks.email}?subject=Opportunity for Mouli Kesavan&body=${encodeURIComponent(`Hi Mouli,\n\n${fields.message}\n\nâ€” ${fields.name} (${fields.email})`)}`;
+    const mailto = `mailto:${socialLinks.email}?subject=Opportunity for Mouli Kesavan&body=${encodeURIComponent(`Hi Mouli,\n\n${fields.message}\n\n— ${fields.name} (${fields.email})`)}`;
     setTimeout(() => {
       window.location.href = mailto;
       setSubmitState("success");
@@ -97,14 +97,14 @@ export default function ContactSection() {
         >
           <div className="flex items-center gap-3 mb-5">
             <span className="inline-block w-8 h-px bg-primary opacity-60" />
-            <span className="section-label">04 â€” Contact</span>
+            <span className="section-label">05 — Contact</span>
           </div>
           <h2 className="section-heading text-gradient-primary max-w-md">
             Open to Opportunities
           </h2>
           <p className="text-muted-foreground text-sm mt-4 max-w-sm leading-relaxed" style={{ opacity: 0.6 }}>
             Currently working as an IT Systems Analyst in Birmingham, actively looking to transition
-            into a security-focused role â€” SOC analyst, threat detection engineer, or junior
+            into a security-focused role — SOC analyst, threat detection engineer, or junior
             pentester. If you have an opening or just want to connect, I&apos;d love to hear from you.
           </p>
           {/* Quick contact links */}
