@@ -4,6 +4,7 @@ export interface Project {
   shortDescription: string;
   tags: string[];
   fullWriteup: string;
+  githubUrl?: string;
   mediumUrl?: string;
 }
 
@@ -39,54 +40,57 @@ export interface SocialLinks {
 export const projects: Project[] = [
   {
     id: "aws-soar",
-    title: "AWS CloudTrail Identity Threat Detection & SOAR Platform",
+    title: "AegisTrail — AWS Identity Threat Detection & Response (SOAR)",
     shortDescription:
-      "Open-source MVP: FastAPI microservices, PostgreSQL, Redis Streams, and n8n SOAR orchestration for detecting privilege escalation, impossible travel, and credential misuse via CloudTrail.",
-    tags: ["AWS", "SOAR", "Threat Detection", "FastAPI", "Redis", "CloudTrail", "Python"],
+      "Open-source, AI-assisted SOAR pipeline for AWS identity threats: custom CloudTrail detections, GeoIP + threat-intel enrichment, LLM triage, and a human-approved containment gate. n8n + FastAPI + PostgreSQL + OpenAI — tested, CI-green, and threat-modeled.",
+    tags: ["AWS", "SOAR", "Detection Engineering", "AI Triage", "n8n", "FastAPI", "PostgreSQL", "Python"],
+    githubUrl: "https://github.com/moulimk/AegisTrail",
     fullWriteup: `## Overview
 
-Building an open-source threat detection and SOAR platform focused on **AWS identity-based attacks** using CloudTrail logs. The system detects malicious activity in real time and automatically generates containment plans and incident timelines.
+**AegisTrail** detects AWS identity threats from CloudTrail, enriches and AI-triages each incident, and routes high-risk ones to a human for a one-click **approve-and-contain** decision — with a full audit trail and a safety model that stops the tool from harming the account it protects.
 
-## Architecture
+> Design principle: **human-in-the-loop SOAR with AI triage**, not "autonomous containment." Every destructive action is gated behind a human approval and a deterministic allowlist.
 
-\`\`\`
-CloudTrail Logs
-      ↓
-FastAPI Microservices (ingestion + detection)
-      ↓
-Redis Streams (event pipeline)
-      ↓
-PostgreSQL (event storage + enrichment)
-      ↓
-n8n SOAR (automated response workflows)
-      ↓
-Incident Timeline Viewer (web UI)
-\`\`\`
+## Pipeline
 
-## Detection Logic
+1. **Ingest** — a finding hits an n8n webhook; the detector normalizes and stores it
+2. **Enrich** — GeoIP + AbuseIPDB threat intelligence on the source IP
+3. **Detect & score** — custom rules + correlation produce a 0–100 risk score
+4. **AI triage** — OpenAI gpt-4o-mini writes a plain-English summary and a recommended action
+5. **Route** — risk ≥ 50 goes to Slack with Approve / Dismiss; lower risk auto-closes
+6. **Contain** — on approval, the detector returns a containment plan and resolves the incident
 
-Event-driven detection rules implemented via Redis Streams-based alert enrichment:
+n8n owns orchestration and the human-approval gate; a FastAPI + PostgreSQL detector owns the stateful detection: per-identity baselines, scoring, correlation, and the incident lifecycle.
 
-### Privilege Escalation
-Monitors for sequences where a low-privilege IAM identity attaches AdministratorAccess or creates new admin users within a time window.
+## Detection scenarios
 
-### Impossible Travel
-Cross-references source IPs from consecutive API calls against geolocation data — flags when a user authenticates from geographically impossible locations within minutes.
+| Scenario | Signals | Response |
+|----------|---------|----------|
+| Leaked key / new geo | new-region + datacenter IP | deactivate access key (on approval) |
+| Privilege escalation | AttachUserPolicy, CreateAccessKey | detach policy / deactivate key |
+| Recon / enumeration | IAM read-burst | alert-only |
+| Root usage / MFA disabled | root activity, MFA deactivation | escalate to human — containment blocked |
 
-### Credential Misuse
-Detects anomalous API call patterns: unusually high volume from a single identity, calls to sensitive APIs (sts:AssumeRole, iam:CreateUser) outside business hours, or calls from unfamiliar regions.
+Detections combine **custom CloudTrail rules** with GuardDuty findings — hybrid coverage, not just a managed service.
 
-## SOAR Response Automation (n8n)
+## AI triage (hardened)
 
-When a high-severity alert fires:
-1. **Enrich** — query AbuseIPDB and GreyNoise for source IP reputation
-2. **Contain** — auto-generate IAM policy to deny the suspect identity
-3. **Notify** — post to Slack with incident summary and recommended actions
-4. **Timeline** — build a chronological event view linked to the incident
+The LLM is treated as an untrusted component:
+- finding data is passed as untrusted input — **prompt-injection defended**
+- its recommended action is validated against an allowlist; anything else is coerced to *escalate to human*
+- if the model is unavailable, triage degrades to **rules-only**
 
-## Current Status
+## Security model (the tool is threat-modeled as a target)
 
-Active development — MVP targeting detection coverage for the top 10 AWS identity attack patterns from the MITRE ATT&CK Cloud matrix.`,
+- **No self-lockout** — a protected-identity allowlist blocks containment of root, break-glass, or the tool's own role
+- **SAFE_MODE** — containment returns the action plan and executes nothing by default
+- least-privilege containment credentials; secrets kept out of version control with pre-commit and CI secret scanning
+
+## Engineering
+
+- **18 automated tests** (scoring, every detection scenario, the prompt-injection defense, the protected-identity guard) in **GitHub Actions CI**
+- a live **incident dashboard** (risk, signals, AI summary, status)
+- one-command **Docker Compose** stack; documented and MIT-licensed`,
   },
   {
     id: "soc-lab-gcp",

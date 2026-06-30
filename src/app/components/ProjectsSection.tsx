@@ -65,17 +65,30 @@ export default function ProjectsSection() {
             <div className="markdown-content">
               <ReactMarkdown>{activeProject.fullWriteup}</ReactMarkdown>
             </div>
-            {activeProject.mediumUrl && (
-              <div className="mt-8 pt-6 border-t border-border">
-                <a
-                  href={activeProject.mediumUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-ghost-accent inline-flex"
-                >
-                  <Icon name="ArrowTopRightOnSquareIcon" size={14} variant="outline" />
-                  Read on Medium
-                </a>
+            {(activeProject.githubUrl || activeProject.mediumUrl) && (
+              <div className="mt-8 pt-6 border-t border-border flex flex-wrap gap-3">
+                {activeProject.githubUrl && (
+                  <a
+                    href={activeProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost-accent inline-flex"
+                  >
+                    <Icon name="ArrowTopRightOnSquareIcon" size={14} variant="outline" />
+                    View on GitHub
+                  </a>
+                )}
+                {activeProject.mediumUrl && (
+                  <a
+                    href={activeProject.mediumUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost-accent inline-flex"
+                  >
+                    <Icon name="ArrowTopRightOnSquareIcon" size={14} variant="outline" />
+                    Read on Medium
+                  </a>
+                )}
               </div>
             )}
           </div>
