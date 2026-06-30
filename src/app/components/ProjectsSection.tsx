@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { projects, type Project } from "@/data/content";
 import ProjectCard from "./ProjectCard";
+import ProjectCover from "./ProjectCover";
 import Modal from "./Modal";
 import Icon from "@/components/ui/AppIcon";
 
@@ -57,6 +58,12 @@ export default function ProjectsSection() {
       >
         {activeProject && (
           <div>
+            <div className="rounded-md overflow-hidden mb-6 border border-border">
+              <ProjectCover
+                project={activeProject}
+                index={projects.findIndex((p) => p.id === activeProject.id)}
+              />
+            </div>
             <div className="flex flex-wrap gap-1.5 mb-6">
               {activeProject.tags.map((tag) => (
                 <span key={tag} className="tag-badge">{tag}</span>
